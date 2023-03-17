@@ -22,10 +22,9 @@
                 <div class="container-top border">
 
                     <div class="sx">
-                        <img src="img/avatar_io.jpg" alt="">
-                        <Span>Sofia</Span>
+                        <img src="img/avatar_5.jpg" alt="">
+                        <Span>Me</Span>
                     </div>
-
                     <span class="dx"> <i class="fa-solid fa-arrows-rotate"></i>
                         <i class="fa-solid fa-message"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -42,7 +41,7 @@
                 <div class="data-input border">
 
                     <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="search" placeholder="Cerca o inizia una nuova chat" name="" id="" v-model="testo">
+                    <input type="search" placeholder="Cerca o inizia una nuova chat" name="" id="" v-model="">
 
                 </div>
 
@@ -51,18 +50,11 @@
 
                     <div class="sx">
                         <img :src="contact.avatar" alt="">
-                        <div class="text">Ricevi notifiche di nuovi messaggi
-                            <div class="text-gray">attiva notifiche desktop</div>
+                        <div class="text">{{contact.name}}
+                            <div class="text-gray">Ultimo messaggio inviato</div>
                         </div>
                     </div>
-
                 </div>
-
-
-
-
-
-
             </div>
 
 
@@ -73,6 +65,14 @@
 
             <div class="message border">
                 <div class="container-top border">
+                    <div class="sx">
+                        <img src="img/avatar_5.jpg" alt="">
+                        <Span>Me</Span>
+                    </div>
+                    <span class="dx"> <i class="fa-solid fa-arrows-rotate"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+
 
                 </div>
                 <div class="message-text">

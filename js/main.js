@@ -9,12 +9,13 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-testo:"ciao",
-            contacts :[
+            indice: 0,
+            
+            contacts: [
                 {
                     name: 'Michele',
                     image: 'img/01.webp',
-            
+
                     avatar: 'img/avatar_1.jpg',
                     visible: true,
                     messages: [
@@ -97,8 +98,8 @@ testo:"ciao",
                     ],
                 },
                 {
-                    name: 'Alessandro L.',
-                    avatar: 'img/avatar_5.jpg',
+                    name: 'Sofia.',
+                    avatar: 'img/avatar_io.jpg',
                     visible: true,
                     messages: [
                         {
