@@ -20,24 +20,43 @@
 
             <div class="list border">
                 <div class="container-top border">
-                    <img src="img/avatar_io.jpg" alt="">
+
+                    <div class="sx">
+                        <img src="img/avatar_io.jpg" alt="">
+                        <Span>Sofia</Span>
+                    </div>
+
                     <span class="dx"> <i class="fa-solid fa-arrows-rotate"></i>
                         <i class="fa-solid fa-message"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i></span>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </span>
                 </div>
+
+
                 <div class="notify border">
                     <div class="bell"><i class="fa-regular fa-bell-slash"></i></div>
+                    <div class="text">Ricevi notifiche di nuovi messaggi
+                        <div class="text-gray">attiva notifiche desktop</div>
+                    </div>
                 </div>
                 <div class="data-input border">
 
                     <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="search" placeholder="Search" name="" id="" v-model="testo">
-                    <p>{{testo}}</p>
-                
+                    <input type="search" placeholder="Cerca o inizia una nuova chat" name="" id="" v-model="testo">
+
                 </div>
 
 
+                <div class="contact border">
 
+                    <div class="sx" v-for="(contact, index) in contacts">
+
+                        <img :src="contact.avatar" alt="">
+                        <div class="text">Ricevi notifiche di nuovi messaggi
+                            <div class="text-gray">attiva notifiche desktop</div>
+                        </div>
+                    </div>
+                </div>
 
 
 

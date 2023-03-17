@@ -5,12 +5,12 @@
 }
 
 /*DEBUG*/
-/* 
+
 .border {
     border: 1px red solid;
 
 }
- */
+ 
 /*DEBUG*/
 
 
@@ -50,20 +50,49 @@ body {
 
 .message-text {
     background-image: url(../img/mine.jpg);
-
 }
 
 .container-top {
     height: 50px;
     display: flex;
-    justify-content: space-between;
+}
+
+.sx {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.dx {
+    width: 20%;
+}
+
+.container-top i {
+    line-height: 50px;
+    padding: 0 5px;
+    color: #b1b1b1;
+}
+
+img {
+    height: 100%;
+    padding: 5px;
+    border-radius: 50%;
 }
 
 .notify {
     height: 50px;
     background-color: #8edafc;
     padding: 5px;
+    display: flex;
+}
 
+.text {
+    padding: 0 5px;
+}
+
+.text-gray {
+    color: gray;
 }
 
 .notify .bell {
@@ -101,17 +130,7 @@ body {
     padding: 0 5px;
 }
 
-
-
-.container-top i {
-    line-height: 50px;
-    padding: 0 5px;
-    color: #b1b1b1;
-}
-
-
-img {
-    height: 100%;
-    padding: 5px;
-    border-radius: 50%;
+.contact {
+    height: 50px;
+    display: flex;
 }
