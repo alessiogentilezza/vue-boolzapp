@@ -5,12 +5,12 @@
 }
 
 /*DEBUG*/
-
-/* .border {
+/* 
+.border {
     border: 1px red solid;
 
-} */
-
+}
+ */
 /*DEBUG*/
 
 
@@ -75,8 +75,6 @@ body {
     justify-content: center;
     align-items: center;
 
-
-
 }
 
 .notify i {
@@ -84,6 +82,26 @@ body {
     color: #8edafc;
 
 }
+
+.data-input {
+    height: 50px;
+    display: flex;
+}
+
+.data-input input {
+    height: 100%;
+    flex-grow: 1;
+    border: none;
+}
+
+.data-input i {
+    background-color: white;
+    line-height: 50px;
+    color: #b1b1b1;
+    padding: 0 5px;
+}
+
+
 
 .container-top i {
     line-height: 50px;
