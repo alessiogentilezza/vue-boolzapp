@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, sans-serif;
+    background-color: #d9dbd4;
+}
+
+.top {
+    height: 70px;
+    background-color: #009688;
+}
+
+.container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    width: 1000px;
+    height: 200px;
+    padding: 10px;
+    background-color: #eaeaea;
+}
+
+.text-center {
+    text-align: center;
+}
