@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
+/*DEBUG*/
+
+/* .border {
+    border: 1px red solid;
+
+} */
+
+/*DEBUG*/
+
+
+
+
 body {
     font-family: Georgia, sans-serif;
     background-color: #d9dbd4;
@@ -15,16 +27,73 @@ body {
 }
 
 .container {
+
     position: absolute;
     top: 5%;
     left: 50%;
     transform: translate(-50%, -5%);
+    display: flex;
     width: 1000px;
-    height: 200px;
     padding: 10px;
     background-color: #eaeaea;
 }
 
-.text-center {
-    text-align: center;
+.list {
+    height: 100%;
+    width: 40%;
+}
+
+.message {
+    height: 100%;
+    width: 60%;
+}
+
+.message-text {
+    background-image: url(../img/mine.jpg);
+
+}
+
+.container-top {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.notify {
+    height: 50px;
+    background-color: #8edafc;
+    padding: 5px;
+
+}
+
+.notify .bell {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.notify i {
+    font-size: 25px;
+    color: #8edafc;
+
+}
+
+.container-top i {
+    line-height: 50px;
+    padding: 0 5px;
+    color: #b1b1b1;
+}
+
+
+img {
+    height: 100%;
+    padding: 5px;
+    border-radius: 50%;
 }
