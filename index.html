@@ -47,15 +47,15 @@
                 </div>
 
 
-                <div class="contact border">
+                <div class="contact border" v-for="(contact, index) in contacts">
 
-                    <div class="sx" v-for="(contact, index) in contacts">
-
+                    <div class="sx">
                         <img :src="contact.avatar" alt="">
                         <div class="text">Ricevi notifiche di nuovi messaggi
                             <div class="text-gray">attiva notifiche desktop</div>
                         </div>
                     </div>
+
                 </div>
 
 
