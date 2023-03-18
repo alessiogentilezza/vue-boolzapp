@@ -9,9 +9,9 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            indice: 0,
-            testo:"",
-            
+            contattoAttivo: 0,
+            testo: "",
+
             contacts: [
                 {
                     name: 'Michele',
@@ -25,11 +25,11 @@ createApp({
                             message: 'Hai portato a spasso il cane?',
                             status: 'sent'
                         },
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'Ricordati di stendere i panni',
-                            status: 'sent'
-                        },
+                        // {
+                        //     date: '10/01/2020 15:50:00',
+                        //     message: 'Ricordati di stendere i panni',
+                        //     status: 'sent'
+                        // },
                         {
                             date: '10/01/2020 16:15:22',
                             message: 'Tutto fatto!',
@@ -52,11 +52,11 @@ createApp({
                             message: 'Bene grazie! Stasera ci vediamo?',
                             status: 'received'
                         },
-                        {
-                            date: '20/03/2020 16:35:00',
-                            message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                            status: 'sent'
-                        }
+                        // {
+                        //     date: '20/03/2020 16:35:00',
+                        //     message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                        //     status: 'sent'
+                        // }
                     ],
                 },
                 {
@@ -181,18 +181,13 @@ createApp({
         }
     },
     mounted() {
-        console.log(this.contacts[0])
     },
 
 
     methods: {
-
-
-
-
-
-
-
+        contactActive(indice) {
+            this.contattoAttivo = indice;
+        },
 
 
 

@@ -44,7 +44,10 @@
                     <input type="search" placeholder="Cerca o inizia una nuova chat" name="" id="" v-model="">
                 </div>
                 <div class="contact-list">
-                    <div class="contact" v-for="(contact, index) in contacts">
+
+                    <div class="contact" v-for="(contact, indice) in contacts" :class="(indice === contattoAttivo) ? 'contatto-attivo' : ''"
+                    @click="contactActive(indice)" v-show="contact.visible">
+                        
                         <div class="sx">
                             <img :src="contact.avatar" alt="">
                             <div class="text">{{contact.name}}
@@ -52,6 +55,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
@@ -72,12 +76,10 @@
 
                 <div class="messages-text">
                     <div class="user-container">
-                        <p class="user-message">{{contacts[indice].messages[indice].message}}</p>
-                        <p class="user-message">{{contacts[indice].messages[1].message}}</p>
-
+                        <p class="user-message">{{contacts[contattoAttivo].messages[0].message}}</p>
                     </div>
                     <div class="pc-container">
-                        <p class="pc-container pc-message">{{contacts[indice].messages[2].message}}</p>
+                        <p class="pc-message">{{contacts[contattoAttivo].messages[1].message}}</p>
 
                     </div>
                 </div>
