@@ -34,7 +34,7 @@
 
                 <div class="notify">
                     <div class="bell"><i class="fa-regular fa-bell-slash"></i></div>
-                    <div class="text">Ricevi notifiche di nuovi messaggi
+                    <div>Ricevi notifiche di nuovi messaggi
                         <div class="text-gray">attiva notifiche desktop</div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
 
                         <div class="sx">
                             <img :src="contact.avatar" alt="">
-                            <div class="text">{{contact.name}}
+                            <div>{{contact.name}}
                                 <div class="text-gray">Ultimo messaggio inviato</div>
                             </div>
                         </div>
@@ -65,8 +65,10 @@
 
                 <div class="container-small">
                     <div class="sx">
-                        <img src="img/avatar_5.jpg" alt="">
-                        <Span>Me</Span>
+
+                        <img :src="contacts[contattoAttivo].avatar" alt="">
+                        <Span>{{contacts[contattoAttivo].name}}</Span>
+
                     </div>
 
                     <span class="dx">
@@ -74,22 +76,24 @@
                         <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
-
                 <div class="messages-text">
                     <div class="user-container">
                         <div v-for="(item, indice) in contacts" v-show="indice == contattoAttivo">
-                            <p class="user-message" v-for="message in item.messages" v-show="message.status == 'sent'">
-                                {{ message.message }}
-                            </p>
+                            <div class="user-message" v-for="message in item.messages"
+                                v-show="message.status == 'sent'">
+                                <p class="">{{ message.message }}</p>
+                                <p class="data">{{ message.date }}</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="pc-container">
                         <div v-for="(item, indice) in contacts" v-show="indice == contattoAttivo">
-                            <p class="pc-message" v-for="message in item.messages"
+                            <div class="pc-message" v-for="message in item.messages"
                                 v-show="message.status == 'received'">
-                                {{ message.message }}
-                            </p>
+                                <p>{{ message.message }}</p>
+                                <p class="data">{{ message.date }}</p>
+                            </div>
                         </div>
 
                     </div>

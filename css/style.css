@@ -58,7 +58,7 @@ body {
 
 .messages-text {
     height: 500px;
-    padding: 10px;
+    padding: 5px;
     background-image: url(../img/mine.jpg);
     overflow-y: auto;
     display: flex;
@@ -94,6 +94,13 @@ body {
 
 }
 
+.data{
+    font-size: 12px;
+    color: gray;
+    text-align: right;
+
+}
+
 .sx {
     width: 80%;
     display: flex;
@@ -116,7 +123,9 @@ body {
 img {
     height: 100%;
     padding: 5px;
+    margin: 0 5px;
     border-radius: 50%;
+
 }
 
 .notify {
@@ -139,10 +148,6 @@ img {
 .notify i {
     font-size: 25px;
     color: #8edafc;
-}
-
-.text {
-    padding: 0 5px;
 }
 
 .text-gray {
