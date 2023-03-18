@@ -41,13 +41,14 @@
 
                 <div class="data-input">
                     <span class="glass"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="search" placeholder="Cerca o inizia una nuova chat" name="" id="" v-model="">
+                    <input type="search" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <div class="contact-list">
 
-                    <div class="contact" v-for="(contact, indice) in contacts" :class="(indice === contattoAttivo) ? 'contatto-attivo' : ''"
-                    @click="contactActive(indice)" v-show="contact.visible">
-                        
+                    <div class="contact" v-for="(contact, indice) in contacts"
+                        :class="(indice === contattoAttivo) ? 'contatto-attivo' : ''" @click="contactActive(indice)"
+                        v-show="contact.visible">
+
                         <div class="sx">
                             <img :src="contact.avatar" alt="">
                             <div class="text">{{contact.name}}
@@ -76,10 +77,20 @@
 
                 <div class="messages-text">
                     <div class="user-container">
-                        <p class="user-message">{{contacts[contattoAttivo].messages[0].message}}</p>
+                        <div v-for="(item, indice) in contacts" v-show="indice == contattoAttivo">
+                            <p class="user-message" v-for="message in item.messages" v-show="message.status == 'sent'">
+                                {{ message.message }}
+                            </p>
+                        </div>
                     </div>
+
                     <div class="pc-container">
-                        <p class="pc-message">{{contacts[contattoAttivo].messages[1].message}}</p>
+                        <div v-for="(item, indice) in contacts" v-show="indice == contattoAttivo">
+                            <p class="pc-message" v-for="message in item.messages"
+                                v-show="message.status == 'received'">
+                                {{ message.message }}
+                            </p>
+                        </div>
 
                     </div>
                 </div>
