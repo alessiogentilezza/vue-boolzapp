@@ -18,87 +18,88 @@
         <div class="top"></div>
         <div class="container">
 
-            <div class="list border">
-                <div class="container-top border">
+            <div class="list">
 
+                <div class="container-small">
                     <div class="sx">
                         <img src="img/avatar_5.jpg" alt="">
                         <Span>Me</Span>
                     </div>
+
                     <span class="dx"> <i class="fa-solid fa-arrows-rotate"></i>
                         <i class="fa-solid fa-message"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </span>
                 </div>
 
-
-                <div class="notify border">
+                <div class="notify">
                     <div class="bell"><i class="fa-regular fa-bell-slash"></i></div>
                     <div class="text">Ricevi notifiche di nuovi messaggi
                         <div class="text-gray">attiva notifiche desktop</div>
                     </div>
                 </div>
-                <div class="data-input border">
 
-                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                <div class="data-input">
+                    <span class="glass"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="search" placeholder="Cerca o inizia una nuova chat" name="" id="" v-model="">
-
                 </div>
-
-
-                <div class="contact border" v-for="(contact, index) in contacts">
-
-                    <div class="sx">
-                        <img :src="contact.avatar" alt="">
-                        <div class="text">{{contact.name}}
-                            <div class="text-gray">Ultimo messaggio inviato</div>
+                <div class="contact-list">
+                    <div class="contact" v-for="(contact, index) in contacts">
+                        <div class="sx">
+                            <img :src="contact.avatar" alt="">
+                            <div class="text">{{contact.name}}
+                                <div class="text-gray">Ultimo messaggio inviato</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
+            <div class="messages">
 
-
-
-
-
-
-            <div class="message border">
-                <div class="container-top border">
+                <div class="container-small">
                     <div class="sx">
                         <img src="img/avatar_5.jpg" alt="">
                         <Span>Me</Span>
                     </div>
-                    <span class="dx"> <i class="fa-solid fa-arrows-rotate"></i>
-                        <i class="fa-solid fa-message"></i>
+
+                    <span class="dx">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
 
+                <div class="messages-text">
+                    <div class="user-container">
+                        <p class="user-message">{{contacts[indice].messages[indice].message}}</p>
+                        <p class="user-message">{{contacts[indice].messages[1].message}}</p>
+
+                    </div>
+                    <div class="pc-container">
+                        <p class="pc-container pc-message">{{contacts[indice].messages[2].message}}</p>
+
+                    </div>
+                </div>
+
+                <div class="data-input">
+                    <Span class="icon-bottom"><i class="fa-regular fa-face-smile"></i></Span>
+                    <input @keyup.enter="" id="input-bottom" type="text" placeholder="Scrivi un messaggio" name="" id=""
+                        v-model="testo">
+                    <Span class="icon-bottom"><i class="fa-solid fa-microphone"></i></Span>
 
                 </div>
-                <div class="message-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quis ut laborum aperiam dolore, a
-                    repellat blanditiis sit expedita at, nisi reprehenderit nesciunt dignissimos molestiae! Numquam
-                    nesciunt rerum quos nobis reiciendis mollitia odio id fuga eius aliquid quaerat facilis officia
-                    culpa, asperiores officiis sint, voluptatem inventore placeat. Quod fuga at a ut autem nihil
-                    inventore porro esse, dolores officia vel impedit perspiciatis natus itaque animi cum! Optio vitae
-                    amet libero, mollitia voluptas recusandae aspernatur veniam praesentium dicta incidunt
-                    exercitationem blanditiis odit, adipisci iste odio eius minima obcaecati sit natus aliquam enim
-                    perspiciatis? Autem molestiae labore tenetur veniam rem excepturi voluptatum necessitatibus aliquam
-                    numquam praesentium alias aliquid, accusantium suscipit, odio ea aspernatur cumque, doloremque
-                    mollitia distinctio? Qui doloremque aliquid dolorem labore consequuntur, id unde rerum nulla dolore
-                    nesciunt molestiae? Accusantium repellendus voluptates eius rem, quibusdam corrupti tempora
-                    inventore consequuntur blanditiis dolorem molestiae iste odit laborum officiis quas perspiciatis,
-                    nesciunt earum. Ab ad necessitatibus vel laborum libero commodi voluptates omnis, fugiat earum qui
-                    placeat quod dolorum nesciunt, labore modi eum voluptatum numquam sed. Distinctio quod sit illum,
-                    repudiandae fugiat suscipit repellendus nulla magni officia quas accusantium illo quaerat porro!
-                    Ratione sit magnam molestias blanditiis voluptatibus, quo sunt nesciunt adipisci, ducimus dolor eos!
-                </div>
+
+
+
+
+
+
+
+
+
 
             </div>
-
-
-            <!-- <input type="text" name="" id=""v-model="testo">
-            <p>{{testo}}</p> -->
         </div>
 
     </div>

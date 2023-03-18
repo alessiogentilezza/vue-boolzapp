@@ -10,6 +10,7 @@ createApp({
     data() {
         return {
             indice: 0,
+            testo:"",
             
             contacts: [
                 {
@@ -174,11 +175,18 @@ createApp({
                             status: 'received'
                         }
                     ],
-                }
+                },
+
             ]
         }
     },
+    mounted() {
+        console.log(this.contacts[0])
+    },
+
+
     methods: {
+
 
 
 
