@@ -87,7 +87,7 @@
                             v-for="message in contact.messages">
                             <div class="d-flex">
                                 <span>{{ message.message }}</span>
-                                <span class="chevron" @mouseover="showMenu"><i class="fa-solid fa-chevron-down text-gray"></i></span>
+                                <span class="chevron" @click="showMenu"><i class="fa-solid fa-chevron-down text-gray"></i></span>
                                
                                 <div class="menu" v-show="hiddenMenu">
                                     <p>Message Info</p>
