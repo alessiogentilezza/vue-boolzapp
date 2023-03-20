@@ -180,6 +180,7 @@ createApp({
             contattoAttivo: 0,
             searchContactText: "",
             userMessage: "",
+            hiddenMenu: false
         }
     },
     methods: {
@@ -223,7 +224,12 @@ createApp({
                 }
             });
         },
-
+        showMenu() {
+            if (!this.hiddenMenu) {
+                this.hiddenMenu = true;
+            }
+            this.hiddenMenu = false;
+        }
 
 
 
