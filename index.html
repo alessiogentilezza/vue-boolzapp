@@ -41,13 +41,14 @@
 
                 <div class="data-input">
                     <span class="glass"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="search" placeholder="Cerca o inizia una nuova chat">
+                    <input type="search" placeholder="Cerca o inizia una nuova chat" v-model='searchContactText'
+                        @keyup="searchContacts">
                 </div>
 
                 <div class="contact-list">
 
-                    <div class="contact" v-for="(contact, indice) in contacts"
-                        :class="(indice === contattoAttivo) ? 'contatto-attivo' : ''" @click="contactActive(indice)"
+                    <div class="contact" v-for="(contact, index) in contacts"
+                        :class="(index === contattoAttivo) ? 'contact-active' : ''" @click="contactActive(index)"
                         v-show="contact.visible">
 
                         <div class="sx">
@@ -79,20 +80,20 @@
 
                 <div class="messages-text">
 
-                    <div class="message-container" v-for="(item, indice) in contacts" v-show="indice == contattoAttivo">
+                    <div class="message-container" v-for="(contact, index) in contacts"
+                        v-show="index == contattoAttivo">
                         <div :class="(message.status == 'sent') ?'message user':'message pc'"
-                            v-for="message in item.messages">
+                            v-for="message in contact.messages">
                             <p>{{ message.message }}</p>
                             <p class="text-gray data">{{ message.date }}</p>
                         </div>
                     </div>
 
                 </div>
-
                 <div class="data-input">
                     <Span class="icon-bottom"><i class="fa-regular fa-face-smile"></i></Span>
-                    <input @keyup.enter="aggiungiMessaggio" id="input-bottom" type="text"
-                        placeholder="Scrivi un messaggio" v-model="messaggio">
+                    <input @keyup.enter="addMessage" id="input-bottom" type="text" placeholder="Scrivi un messaggio"
+                        v-model="userMessage">
                     <Span class="icon-bottom"><i class="fa-solid fa-microphone"></i></Span>
                 </div>
 
@@ -106,3 +107,4 @@
 </body>
 
 </html>
+

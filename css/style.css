@@ -57,7 +57,6 @@ body {
     width: 60%;
     display: flex;
     flex-direction: column;
-
 }
 
 .messages-text {
@@ -70,35 +69,23 @@ body {
 .message-container {
     display: flex;
     flex-direction: column;
-
 }
-
-/* .user-container {
-    align-self: flex-end;
-    max-width: 60%;
-}
-
-.pc-container {
-    align-self: flex-start; 
-    max-width: 60%;
-} */
 
 .message {
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
+    max-width: 50%;
 }
 
 .message.user {
     background-color: #d5f9ba;
     align-self: flex-end;
-    max-width: 60%;
 }
 
 .message.pc {
     background-color: #ffffff;
     align-self: flex-start;
-    max-width: 60%;
 }
 
 .data {
@@ -111,10 +98,8 @@ body {
     align-items: center;
 }
 
-.contatto-attivo {
-    /* border-bottom-color: transparent; */
+.contactActive {
     background: #e9ebeb;
-
 }
 
 .dx {
@@ -129,7 +114,6 @@ img {
     padding: 5px;
     margin: 0 5px;
     border-radius: 50%;
-
 }
 
 .notify {
@@ -170,7 +154,6 @@ img {
     align-items: center;
     background-color: #eaeaea;
     padding: 5px;
-
 }
 
 .data-input input {

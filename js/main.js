@@ -98,7 +98,7 @@ createApp({
                     ],
                 },
                 {
-                    name: 'Sofia.',
+                    name: 'Sofia',
                     avatar: 'img/avatar_io.jpg',
                     visible: true,
                     messages: [
@@ -178,9 +178,8 @@ createApp({
             ],
 
             contattoAttivo: 0,
-
-            messaggio: "",
-            messaggioRisposta: "",
+            searchContactText: "",
+            userMessage: "",
         }
     },
     methods: {
@@ -188,19 +187,19 @@ createApp({
             this.contattoAttivo = indice;
         },
 
-        aggiungiMessaggio() {
-            const messaggio = this.messaggio.trim();
+        addMessage() {
+            const userMessage = this.userMessage.trim();
 
-            if (messaggio !== "") {
+            if (userMessage !== "") {
                 this.contacts[this.contattoAttivo].messages.push(
                     {
                         date: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
-                        message: this.messaggio,
+                        message: this.userMessage,
                         status: 'sent'
                     }
                 );
 
-                this.messaggio = "";
+                this.userMessage = "";
 
                 setTimeout(() => {
                     this.contacts[this.contattoAttivo].messages.push({
@@ -213,6 +212,24 @@ createApp({
                 }, 2000);
             }
         },
+
+        searchContacts() {
+
+            this.contacts.forEach((element) => {
+                if (element.name.toLowerCase().includes(this.searchContactText.toLowerCase())) {
+                    element.visible = true;
+                } else {
+                    element.visible = false;
+                }
+            });
+        },
+
+
+
+
+
+
+
     }
 
 }).mount('#app');
