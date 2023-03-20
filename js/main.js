@@ -9,9 +9,6 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            contattoAttivo: 0,
-            testo: "",
-            inviato: true,
 
             contacts: [
                 {
@@ -177,14 +174,61 @@ createApp({
                         }
                     ],
                 },
+                {
+                    name: 'Me',
+                    avatar: '',
+                    visible: false,
+                    messages: [
+                        {
+                            date: '',
+                            message: '',
+                            status: 'sent'
+                        },
+                        {
+                            date: '',
+                            message: '',
+                            status: 'sent'
+                        },
+                        {
+                            date: '',
+                            message: '',
+                            status: 'received'
+                        }
+                    ],
+                },
 
-            ]
+
+            ],
+
+            contattoAttivo: 0,
+
+            messaggiUtente: [],
+            messaggio: "",
+            messaggioRisposta: ""
         }
     },
-
     methods: {
         contactActive(indice) {
             this.contattoAttivo = indice;
+            this.messaggiUtente = [''];
+            this.messaggioRisposta = "";
+        },
+
+        aggiungiMessaggio() {
+            const messaggio = this.messaggio.trim();
+            if (messaggio !== "") {
+                this.messaggiUtente.push(messaggio);
+                this.messaggio = "";
+
+                setTimeout(() => {
+                    this.messaggioRisposta = "Ok";
+
+                }, 1000);
+
+                this.messaggioRisposta = "";
+
+            }
         }
     }
+
 }).mount('#app');

@@ -35,7 +35,7 @@
                 <div class="notify">
                     <div class="bell"><i class="fa-regular fa-bell-slash"></i></div>
                     <div>Ricevi notifiche di nuovi messaggi
-                        <div class="text-gray">attiva notifiche desktop</div>
+                        <div class="text-gray underline">attiva notifiche desktop</div>
                     </div>
                 </div>
 
@@ -43,6 +43,7 @@
                     <span class="glass"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="search" placeholder="Cerca o inizia una nuova chat">
                 </div>
+
                 <div class="contact-list">
 
                     <div class="contact" v-for="(contact, indice) in contacts"
@@ -52,7 +53,7 @@
                         <div class="sx">
                             <img :src="contact.avatar" alt="">
                             <div>{{contact.name}}
-                                <div class="text-gray">Ultimo messaggio inviato</div>
+                                <p class="text-gray">Ultimo messaggio inviato</p>
                             </div>
                         </div>
                     </div>
@@ -64,11 +65,10 @@
             <div class="messages">
 
                 <div class="container-small">
+                    
                     <div class="sx">
-
                         <img :src="contacts[contattoAttivo].avatar" alt="">
-                        <Span>{{contacts[contattoAttivo].name}}</Span>
-
+                        <span>{{contacts[contattoAttivo].name}}</span>
                     </div>
 
                     <span class="dx">
@@ -76,51 +76,49 @@
                         <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
+
                 <div class="messages-text">
+
                     <div class="user-container">
+
                         <div v-for="(item, indice) in contacts" v-show="indice == contattoAttivo">
-                            <div class="user-message" v-for="message in item.messages"
+                            <div class="message user" v-for="message in item.messages"
                                 v-show="message.status == 'sent'">
-                                <p class="">{{ message.message }}</p>
-                                <p class="data">{{ message.date }}</p>
+                                <p>{{ message.message }}</p>
+                                <p class="text-gray data">{{ message.date }}</p>
                             </div>
                         </div>
+
+                        <p class="message user" v-for="(messaggio, index) in messaggiUtente" v-show="messaggio!==''">{{
+                            messaggio }}</p>
                     </div>
 
                     <div class="pc-container">
+
                         <div v-for="(item, indice) in contacts" v-show="indice == contattoAttivo">
-                            <div class="pc-message" v-for="message in item.messages"
+                            <div class="message pc" v-for="message in item.messages"
                                 v-show="message.status == 'received'">
                                 <p>{{ message.message }}</p>
-                                <p class="data">{{ message.date }}</p>
+                                <p class="text-gray">{{ message.date }}</p>
                             </div>
                         </div>
+
+                        <p class="message pc" v-show="messaggioRisposta!==''">{{ messaggioRisposta }}</p>
 
                     </div>
                 </div>
 
                 <div class="data-input">
                     <Span class="icon-bottom"><i class="fa-regular fa-face-smile"></i></Span>
-                    <input @keyup.enter="" id="input-bottom" type="text" placeholder="Scrivi un messaggio" name="" id=""
-                        v-model="testo">
+                    <input @keyup.enter="aggiungiMessaggio" id="input-bottom" type="text"
+                        placeholder="Scrivi un messaggio" v-model="messaggio">
                     <Span class="icon-bottom"><i class="fa-solid fa-microphone"></i></Span>
-
                 </div>
-
-
-
-
-
-
-
-
-
 
             </div>
         </div>
 
     </div>
-
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>
