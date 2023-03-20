@@ -3,6 +3,7 @@
 dall’interlocutore (bianco) assegnando due classi CSS diverse
 ● Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare
 nome e immagine di ogni contatto */
+const DateTime = luxon.DateTime;
 
 const { createApp } = Vue
 
@@ -174,61 +175,43 @@ createApp({
                         }
                     ],
                 },
-                {
-                    name: 'Me',
-                    avatar: '',
-                    visible: false,
-                    messages: [
-                        {
-                            date: '',
-                            message: '',
-                            status: 'sent'
-                        },
-                        {
-                            date: '',
-                            message: '',
-                            status: 'sent'
-                        },
-                        {
-                            date: '',
-                            message: '',
-                            status: 'received'
-                        }
-                    ],
-                },
-
-
             ],
 
             contattoAttivo: 0,
 
-            messaggiUtente: [],
             messaggio: "",
-            messaggioRisposta: ""
+            messaggioRisposta: "",
         }
     },
     methods: {
         contactActive(indice) {
             this.contattoAttivo = indice;
-            this.messaggiUtente = [''];
-            this.messaggioRisposta = "";
         },
 
         aggiungiMessaggio() {
             const messaggio = this.messaggio.trim();
+
             if (messaggio !== "") {
-                this.messaggiUtente.push(messaggio);
+                this.contacts[this.contattoAttivo].messages.push({
+                    date: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
+                    message: this.messaggio,
+                    status: 'sent'
+                }
+                );
+
                 this.messaggio = "";
 
                 setTimeout(() => {
-                    this.messaggioRisposta = "Ok";
+                    this.contacts[this.contattoAttivo].messages.push({
+                        date: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
+                        message: "ok",
+                        status: 'received'
+                    }
+                    );
 
-                }, 1000);
-
-                this.messaggioRisposta = "";
-
+                }, 2000);
             }
-        }
+        },
     }
 
 }).mount('#app');

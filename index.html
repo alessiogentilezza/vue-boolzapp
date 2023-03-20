@@ -65,7 +65,7 @@
             <div class="messages">
 
                 <div class="container-small">
-                    
+
                     <div class="sx">
                         <img :src="contacts[contattoAttivo].avatar" alt="">
                         <span>{{contacts[contattoAttivo].name}}</span>
@@ -89,10 +89,15 @@
                             </div>
                         </div>
 
-                        <p class="message user" v-for="(messaggio, index) in messaggiUtente" v-show="messaggio!==''">{{
-                            messaggio }}</p>
+                        <div class="message user" v-show="messaggio!==''">
+                            <p>{{ messaggio }}</p>
+                        </div>
                     </div>
 
+
+
+
+                    
                     <div class="pc-container">
 
                         <div v-for="(item, indice) in contacts" v-show="indice == contattoAttivo">
@@ -103,9 +108,13 @@
                             </div>
                         </div>
 
-                        <p class="message pc" v-show="messaggioRisposta!==''">{{ messaggioRisposta }}</p>
-
                     </div>
+
+
+
+
+
+
                 </div>
 
                 <div class="data-input">
@@ -119,6 +128,7 @@
         </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>
