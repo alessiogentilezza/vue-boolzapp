@@ -197,7 +197,7 @@ createApp({
                         date: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
                         message: this.messaggio,
                         status: 'sent'
-                    },
+                    }
                 );
 
                 this.messaggio = "";

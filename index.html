@@ -79,18 +79,12 @@
 
                 <div class="messages-text">
 
-
                     <div class="message-container" v-for="(item, indice) in contacts" v-show="indice == contattoAttivo">
                         <div :class="(message.status == 'sent') ?'message user':'message pc'"
                             v-for="message in item.messages">
-                            <!-- <div class="message user" v-for="message in item.messages"
-                                v-show="message.status == 'sent'"> -->
                             <p>{{ message.message }}</p>
                             <p class="text-gray data">{{ message.date }}</p>
                         </div>
-
-                        <!-- <p>{{ messaggio }}</p> -->
-                    
                     </div>
 
                 </div>
