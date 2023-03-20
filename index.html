@@ -54,7 +54,8 @@
                         <div class="sx">
                             <img :src="contact.avatar" alt="">
                             <div>{{contact.name}}
-                                <p class="text-gray">Ultimo messaggio inviato</p>
+                                <p class="text-gray">Ultimo messaggio</p>
+                                <p class="text-gray">{{contact.messages[contact.messages.length - 1].date}}</p>
                             </div>
                         </div>
                     </div>
@@ -107,4 +108,3 @@
 </body>
 
 </html>
-
