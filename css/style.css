@@ -65,12 +65,15 @@ body {
     padding: 5px;
     background-image: url(../img/mine.jpg);
     overflow-y: auto;
+}
+
+.message-container {
     display: flex;
     flex-direction: column;
 
 }
 
-.user-container {
+/* .user-container {
     align-self: flex-end;
     max-width: 60%;
 }
@@ -78,19 +81,24 @@ body {
 .pc-container {
     align-self: flex-start; 
     max-width: 60%;
-}
-.message{
+} */
+
+.message {
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
 }
+
 .message.user {
     background-color: #d5f9ba;
-    
+    align-self: flex-end;
+    max-width: 60%;
 }
 
 .message.pc {
     background-color: #ffffff;
+    align-self: flex-start;
+    max-width: 60%;
 }
 
 .data {
