@@ -54,10 +54,12 @@
                         <div class="sx">
                             <img :src="contact.avatar" alt="">
                             <div>{{contact.name}}
-                                <p class="text-gray">Ultimo messaggio</p>
-                                <p class="text-gray">{{contact.messages[contact.messages.length - 1].date}}</p>
-                                <!-- <p class="text-gray" v-if="(contact.messages !=='')" v-for="elem in contact.messages">{{elem.date}}</p> -->
-                                <!-- <span v-else></span> -->
+                                <div v-if="contact.messages.length>0">
+                                    <p class="text-gray">Ultimo messaggio</p>
+                                    <p class="text-gray">{{contact.messages[contact.messages.length - 1].date}}</p>
+                                </div>
+                                <p v-else class="text-gray">Non ci sono più messagi</p>
+
                             </div>
                         </div>
                     </div>
@@ -85,7 +87,7 @@
 
                     <div class="message-container">
                         <div :class="(message.status == 'sent') ?'message user':'message pc'"
-                            v-for="message in contacts[contattoAttivo].messages">
+                            v-for="(message, index) in contacts[contattoAttivo].messages">
                             <div class="d-flex">
                                 <span>{{ message.message }}</span>
                                 <span class="chevron" @click="showMenu"><i
@@ -93,7 +95,7 @@
 
                                 <div class="menu" v-show="hiddenMenu">
                                     <p>Message Info</p>
-                                    <div class="delete" @click="deleteMessage(contattoAttivo)">Delete Message</div>
+                                    <div class="delete" @click="deleteMessage(index)">Delete Message</div>
                                 </div>
 
                             </div>

@@ -224,8 +224,13 @@ createApp({
                 }
             });
         },
+
         showMenu() {
             this.hiddenMenu = !this.hiddenMenu;
+
+
+
+            
         },
 
         deleteMessage(index) {
@@ -233,17 +238,6 @@ createApp({
             this.contacts[this.contattoAttivo].messages.splice(index, 1);
 
         },
-
-        deletedMessages() {
-
-            if (this.contacts.messages > 0) {
-                
-            } else {
-                return ""
-            }
-            console.log(messages);
-        },
-
 
     }
 
