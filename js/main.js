@@ -180,7 +180,7 @@ createApp({
             contattoAttivo: 0,
             searchContactText: "",
             userMessage: "",
-            activeMessageIndex: null,
+            activeMessageIndex: -1,
             hiddenMenu: true,
         }
     },
@@ -216,7 +216,6 @@ createApp({
         },
 
         searchContacts() {
-
             this.contacts.forEach((element) => {
                 if (element.name.toLowerCase().includes(this.searchContactText.toLowerCase())) {
                     element.visible = true;
@@ -224,10 +223,6 @@ createApp({
                     element.visible = false;
                 }
             });
-        },
-        hiddenMenuMouse(){
-            this.hiddenMenu = !this.hiddenMenu;
-
         },
 
         showMenu(index) {
@@ -243,6 +238,7 @@ createApp({
         },
         deleteMessage(index) {
             this.contacts[this.contattoAttivo].messages.splice(index, 1);
+            this.activeMessageIndex = -1;
         },
 
     }
