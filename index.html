@@ -48,7 +48,7 @@
                 <div class="contact-list">
 
                     <div class="contact" v-for="(contact, index) in contacts"
-                        :class="(index === contattoAttivo) ? 'contactActive' : ''" @click="contactActive(index)"
+                        :class="(index == contattoAttivo) ? 'contactActive' : ''" @click="contactActive(index)"
                         v-show="contact.visible">
 
                         <div class="sx">
@@ -89,11 +89,11 @@
                         <div :class="(message.status == 'sent') ?'message user':'message pc'"
                             v-for="(message, index) in contacts[contattoAttivo].messages">
                             <div class="d-flex">
-                                <span>{{ message.message }}</span>
-                                <span class="chevron" @click="showMenu"><i
+                                <span >{{ message.message }}</span>
+                                <span class="chevron" @click="showMenu(index)" ><i
                                         class="fa-solid fa-chevron-down text-gray"></i></span>
 
-                                <div class="menu" v-show="hiddenMenu">
+                                <div class="menu" v-show="activeMessageIndex == index? hiddenMenu : ''">
                                     <p>Message Info</p>
                                     <div class="delete" @click="deleteMessage(index)">Delete Message</div>
                                 </div>
