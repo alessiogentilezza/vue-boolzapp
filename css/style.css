@@ -4,27 +4,16 @@
     box-sizing: border-box;
 }
 
-/*DEBUG*/
-
-.border {
-    border: 1px red solid;
-
-}
-
-/*DEBUG*/
 
 body {
     font-family: Helvetica, sans-serif;
     background-color: #d9dbd4;
 }
-
 .top {
     height: 70px;
     background-color: #009688;
     position: relative;
-
 }
-
 .container {
     position: absolute;
     z-index: 10;
@@ -35,42 +24,34 @@ body {
     min-width: 600px;
     width: 80%;
 }
-
 .container-small {
     height: 50px;
     display: flex;
     background-color: #eaeaea;
 }
-
 .container-small i {
     color: #b1b1b1;
 }
-
 .list {
     width: 40%;
     display: flex;
     flex-direction: column;
-
 }
-
 .messages {
     width: 60%;
     display: flex;
     flex-direction: column;
 }
-
 .messages-text {
     height: 500px;
     padding: 5px;
     background-image: url(../img/mine.jpg);
     overflow-y: auto;
 }
-
 .message-container {
     display: flex;
     flex-direction: column;
 }
-
 .message {
     margin: 10px;
     padding: 10px;
@@ -78,52 +59,44 @@ body {
     min-width: 30%;
     max-width: 50%;
 }
-
 .message.user {
     background-color: #d5f9ba;
     align-self: flex-end;
 }
-
 .message.pc {
     background-color: #ffffff;
     align-self: flex-start;
 }
-
 .data {
     text-align: right;
 }
-
 .sx {
     width: 80%;
     display: flex;
     align-items: center;
+    flex-grow: 1;
 }
-
 .contactActive {
     background: #e9ebeb;
 }
-
 .dx {
     width: 20%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
 img {
     height: 100%;
     padding: 5px;
     margin: 0 5px;
     border-radius: 50%;
 }
-
 .notify {
     height: 50px;
     background-color: #8edafc;
     padding: 5px;
     display: flex;
 }
-
 .notify .bell {
     border-radius: 50%;
     height: 40px;
@@ -134,21 +107,17 @@ img {
     justify-content: center;
     align-items: center;
 }
-
 .notify i {
     font-size: 25px;
     color: #8edafc;
 }
-
 .text-gray {
     font-size: 12px;
     color: gray;
 }
-
 .underline {
     text-decoration: underline;
 }
-
 .data-input {
     height: 50px;
     display: flex;
@@ -156,18 +125,15 @@ img {
     background-color: #eaeaea;
     padding: 5px;
 }
-
 .data-input input {
     height: 100%;
     flex-grow: 1;
     border: 1px solid #b1b1b1;
     padding: 0 5px;
 }
-
 #input-bottom {
     height: 30px;
 }
-
 .glass i {
     background-color: white;
     line-height: 38px;
@@ -180,34 +146,28 @@ img {
     border-style: solid;
     border-color: #b1b1b1;
 }
-
 .icon-bottom i {
     color: #677175;
     padding: 0 25px;
 }
-
 .contact-list {
     height: 100%;
     background-color: white;
 }
-
 .contact {
     height: 50px;
     display: flex;
     cursor: pointer;
 }
-
 .d-flex {
     display: flex;
     justify-content: space-between;
     position: relative;
 }
-
 .chevron {
     margin-left: 20px;
     cursor: pointer;
 }
-
 .menu {
     position: absolute;
     width: 150px;
@@ -217,16 +177,12 @@ img {
     padding: 5px;
     border-radius: 5px;
   }
-
 .delete {
     border-top: 1px gray solid;
     color:red;
     cursor: pointer;
-
 }
-
 .delete:hover {
     transition: all 0.1s ease-in-out;
     background-color: rgba(255, 255, 255, 0.7);
-
 }

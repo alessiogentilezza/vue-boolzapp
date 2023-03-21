@@ -1,21 +1,12 @@
-/**Milestone 1
-● Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e
-dall’interlocutore (bianco) assegnando due classi CSS diverse
-● Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare
-nome e immagine di ogni contatto */
 const DateTime = luxon.DateTime;
-
 const { createApp } = Vue
-
 createApp({
     data() {
         return {
-
             contacts: [
                 {
                     name: 'Michele',
                     image: 'img/01.webp',
-
                     avatar: 'img/avatar_1.jpg',
                     visible: true,
                     messages: [
@@ -176,7 +167,6 @@ createApp({
                     ],
                 },
             ],
-
             contattoAttivo: 0,
             searchContactText: "",
             userMessage: "",
@@ -188,10 +178,8 @@ createApp({
         contactActive(indice) {
             this.contattoAttivo = indice;
         },
-
         addMessage() {
             const userMessage = this.userMessage.trim();
-
             if (userMessage !== "") {
                 this.contacts[this.contattoAttivo].messages.push(
                     {
@@ -200,9 +188,7 @@ createApp({
                         status: 'sent'
                     }
                 );
-
                 this.userMessage = "";
-
                 setTimeout(() => {
                     this.contacts[this.contattoAttivo].messages.push({
                         date: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
@@ -210,11 +196,9 @@ createApp({
                         status: 'received'
                     }
                     );
-
                 }, 2000);
             }
         },
-
         searchContacts() {
             this.contacts.forEach((element) => {
                 if (element.name.toLowerCase().includes(this.searchContactText.toLowerCase())) {
@@ -224,7 +208,6 @@ createApp({
                 }
             });
         },
-
         showMenu(index) {
             if (this.activeMessageIndex == index) {
                 this.hiddenMenu = !this.hiddenMenu;
@@ -240,7 +223,5 @@ createApp({
             this.contacts[this.contattoAttivo].messages.splice(index, 1);
             this.activeMessageIndex = -1;
         },
-
     }
-
 }).mount('#app');
