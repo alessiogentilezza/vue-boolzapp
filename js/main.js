@@ -227,7 +227,24 @@ createApp({
         showMenu() {
             this.hiddenMenu = !this.hiddenMenu;
         },
-        
+
+        deleteMessage(index) {
+
+            this.contacts[this.contattoAttivo].messages.splice(index, 1);
+
+        },
+
+        deletedMessages() {
+
+            if (this.contacts.messages > 0) {
+                
+            } else {
+                return ""
+            }
+            console.log(messages);
+        },
+
+
     }
 
 }).mount('#app');
