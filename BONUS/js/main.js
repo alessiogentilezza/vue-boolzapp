@@ -1,5 +1,6 @@
 const DateTime = luxon.DateTime;
 const { createApp } = Vue
+
 createApp({
     data() {
         return {
@@ -171,7 +172,10 @@ createApp({
             searchContactText: "",
             userMessage: "",
             activeMessageIndex: -1,
+            hidden: false,
             hiddenMenu: true,
+            randomWord: ['si certo', 'ma anche no', 'mmm forse', 'ok va bene', 'magari un\'altra volta'],
+
         }
     },
     methods: {
@@ -192,8 +196,8 @@ createApp({
                 setTimeout(() => {
                     this.contacts[this.contattoAttivo].messages.push({
                         date: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
-                        message: "ok",
-                        status: 'received'
+                        message: this.randomWord[Math.floor(Math.random() * this.randomWord.length)],
+                        status: "received"
                     }
                     );
                 }, 2000);
@@ -222,8 +226,23 @@ createApp({
         deleteMessage(index) {
             this.contacts[this.contattoAttivo].messages.splice(index, 1);
             this.activeMessageIndex = -1;
-            this.hiddenMenu = true
-
         },
+        showMenuDelete() {
+            this.hidden = !this.hidden;
+        },
+        deleteAllMessage() {
+            this.contacts[this.contattoAttivo].messages = "";
+        },
+
+        deleteConversation(index) {
+            this.contacts.splice(index, 1);
+            this.contattoAttivo = 0;
+            this.hidden = !this.hidden;
+        }
+
+
+
+
+
     }
 }).mount('#app');

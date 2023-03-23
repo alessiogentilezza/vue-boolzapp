@@ -76,10 +76,11 @@ body {
     align-items: center;
     flex-grow: 1;
 }
-.contactActive {
+.contactActive, .contact:hover {
     background: #e9ebeb;
 }
 .dx {
+    position: relative;
     width: 20%;
     display: flex;
     justify-content: space-around;
@@ -157,25 +158,39 @@ img {
 .contact {
     height: 50px;
     display: flex;
-    cursor: pointer;
 }
 .d-flex {
     display: flex;
     justify-content: space-between;
     position: relative;
 }
+.cursor{
+    cursor: pointer;
+}
 .chevron {
     margin-left: 20px;
-    cursor: pointer;
 }
 .menu {
     position: absolute;
-    width: 150px;
+    min-width: 150px;
     background-color: #e9ebeb;
-    top: 20px;
+    top: 30px;
     right: 0px;
     padding: 5px;
     border-radius: 5px;
+  }
+  .top-m{
+    top: 40px;
+    right: 15px;
+    z-index: 10;
+    background-color: #fff;
+
+      }
+  .bottom-m{
+    top: 30px;
+    right: 0px;
+    z-index: 10;
+
   }
 .delete {
     border-top: 1px gray solid;

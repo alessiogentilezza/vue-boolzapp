@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https:cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="app">
+        <div class="top"></div>
+        <div class="container">
+
+            <!-- LATO SINISTRO -->
+
+            <div class="list">
+                <div class="container-small">
+                    <div class="sx">
+                        <img src="img/avatar_5.jpg" alt="">
+                        <Span>Me</Span>
+                    </div>
+                    <span class="dx"> <i class="fa-solid fa-arrows-rotate"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </span>
+                </div>
+                <div class="notify">
+                    <div class="bell"><i class="fa-regular fa-bell-slash"></i></div>
+                    <div>Ricevi notifiche di nuovi messaggi
+                        <div class="text-gray underline">attiva notifiche desktop</div>
+                    </div>
+                </div>
+
+                <!-- RICERCA CONTATTI -->
+
+                <div class="data-input">
+                    <span class="glass"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="search" placeholder="Cerca o inizia una nuova chat" v-model='searchContactText'
+                        @keyup="searchContacts">
+                </div>
+
+                <!-- LISTA CONTATTI -->
+
+                <div class="contact-list">
+                    <div class="contact cursor" v-for="(contact, index) in contacts "
+                        :class="(index == contattoAttivo) ? 'contactActive' : ''" @click="contactActive(index)"
+                        v-show="contact.visible">
+                        <div class="sx">
+                            <img :src="contact.avatar" alt="">
+                            <div>{{contact.name}}
+                                <div v-if="contact.messages.length>0">
+                                    <p class="text-gray">{{contact.messages[contact.messages.length - 1].message}}</p>
+                                    <p class="text-gray">{{contact.messages[contact.messages.length -
+                                        1].date.substring(11)}}</p>
+                                </div>
+                                <p v-else class="text-gray">Non ci sono più messagi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p v-else class="text-gray"></p>
+                </div>
+            </div>
+
+            <!-- LATO DESTRO -->
+            <!-- TOP MESSAGGI -->
+
+            <div class="messages">
+                <div class="container-small">
+                    <div class="sx">
+                        <img :src="contacts[contattoAttivo].avatar" alt="">
+                        <span>{{contacts[contattoAttivo].name}}</span>
+                    </div>
+                    <div class="dx">
+                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <span><i class="fa-solid fa-paperclip"></i></span>
+                        <span class="cursor" @click="showMenuDelete"><i
+                                class="fa-solid fa-ellipsis-vertical"></i></span>
+                        <div class="top-m menu" v-show="hidden">
+                            <p class="cursor" @click="deleteConversation(index)">Delete Conversation</p>
+                            <p class="delete" @click="deleteAllMessage">Delete All Messages</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CENTER -->
+
+                <div class="messages-text">
+                    <div class="message-container">
+                        <div :class="(message.status == 'sent') ?'message user':'message pc'"
+                            v-for="(message, index) in contacts[contattoAttivo].messages">
+                            <div class="d-flex">
+                                <span>{{ message.message }}</span>
+
+                                <!-- MENU A TENDINA -->
+
+                                <span class="chevron cursor" @click="showMenu(index)"><i
+                                        class="fa-solid fa-chevron-down text-gray"></i></span>
+                                <div class="bottom-m menu" v-show="activeMessageIndex == index? hiddenMenu : ''">
+                                    <p>Message Info</p>
+                                    <div class="delete" @click="deleteMessage(index)">Delete Message</div>
+                                </div>
+                            </div>
+                            <p class="text-gray data">{{ message.date.substring(11) }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BARRA INPUT -->
+                <!-- DOWN -->
+
+                <div class="data-input">
+                    <Span class="icon-bottom"><i class="fa-regular fa-face-smile"></i></Span>
+                    <input @keyup.enter="addMessage" id="input-bottom" type="text" placeholder="Scrivi un messaggio"
+                        v-model="userMessage">
+                    <Span class="icon-bottom" v-if="!userMessage"><i class="fa-solid fa-microphone"></i></Span>
+                    <span @click="addMessage" class="icon-bottom" v-else><i class="fa-solid fa-plane"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https:cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+    <script src="https:unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
